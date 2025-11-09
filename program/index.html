@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="url" content="https://tobbetu.org"/>
+<meta name="description" content="tobbetu org program page">
+<meta property="og:url" content="https://tobbetu.org"/>
+<meta property="og:site_name" content="TOBB ETU Program"/>
+<link id="favicon" href="/lighticon.png" rel="icon"/>
+<title>TOBB ETÜ Program</title>
+<script defer data-domain="cezeri.xyz" src="https://analyze.cezeri.tech/js/script.js"></script>
+<script defer data-domain="tobbetu.org" src="https://analyze.cezeri.tech/js/script.js"></script>
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<body data-color="dark">
+<div class="container">
+
+<div class="info">
+<a id="themeSwitcher"><i class="fa fa-adjust"></i></a>
+<a href="/">Portal</a>
+<a href="https://cezeri.tech">Hakkımızda</a>
+<a class="b" href="https://www.linkedin.com/in/mtbbk/">Yapımcı: Barbaros Köş (MTBBK)</a>
+</div>
+
+<h1>TOBB ETÜ Program</h1>
+
+<div class="table-wrapper">
+  <table id="program">
+    <colgroup>
+		<col style="width:75px">
+		<col span="6">		
+	</colgroup>
+    <thead>
+      <tr>
+        <th>Saat</th>
+        <th>Pazartesi</th>
+        <th>Salı</th>
+        <th>Çarşamba</th>
+        <th>Perşembe</th>
+        <th>Cuma</th>
+        <th>Cumartesi</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div id="editModal" class="modal">
+<div class="modal-content">
+<h3>Ders Bilgisi</h3>
+<label>Ders:</label>
+<select id="dersSelect" class="select2"></select><br>
+<label>Şube:</label>
+<input type="text" id="section" placeholder="Şube veya grup" />
+<label>Derslik:</label>
+<input type="text" id="classroom" placeholder="Örnek: Amfi 3" />
+<div style="text-align:center; margin-top:10px;">
+<button id="saveBtn">Kaydet</button>
+<button id="clearBtn">Temizle</button>
+<button onclick="closeModal()">İptal</button>
+</div>
+</div>
+</div>
+
+
+<div id="breadcrumbs" onclick="clearAll()">Tümünü Temizle</div>
+<div id="breadcrumbs" onclick="downloadPDF()">PDF olarak Kaydet</div>
+<div id="breadcrumbs" onclick="exportSchedule()">Programı Dışa Aktar (JSON)</div>
+<div id="breadcrumbs" onclick="importSchedule()">Programı İçe Aktar (JSON)</div>
+
+<h2>Sayfada Son Düzenleme: 03/11/2025</h2>
+
+<div class="line-2"></div>
+<footer>
+<p><a href="https://www.linkedin.com/company/tobb-etu-computer-science-community">TOBB ETÜ Bilgisayar Topluluğu</a></p>
+<p><a href="https://www.linkedin.com/company/cezeri-software">Cezeri Software © 2025</a></p>
+<p><a href="mailto:bilgisayartoplulugu.etu@gmail.com">bilgisayartoplulugu.etu@gmail.com</a></p>
+</footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script type="text/javascript" src="/scripts/program.js"></script>
+<script type="text/javascript" src="/scripts/themeswitch.js"></script>
+<script type="text/javascript" src="/scripts/screensaver.js"></script>
+</body>
+</html>

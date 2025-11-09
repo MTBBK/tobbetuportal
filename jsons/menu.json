@@ -1,0 +1,82 @@
+[
+  {
+    "week": "1. Hafta",
+    "days": [
+      {
+        "date": "10 Kasım Pazartesi",
+        "corba": "Yayla Çorba",
+        "anayemek": "Dana Tandır, Tırnak Pide",
+        "yan": "Meyane Pilavı",
+        "tatli": "Meyve"
+      },
+      {
+        "date": "11 Kasım Salı",
+        "corba": "Mahluta Çorba",
+        "anayemek": "Tas Kebabı",
+        "yan": "Pirinç Pilavı",
+        "tatli": "Kemalpaşa"
+      },
+      {
+        "date": "12 Kasım Çarşamba",
+        "corba": "Mantar Çorba",
+        "anayemek": "Fırın Tavuk",
+        "yan": "İç Pilav",
+        "tatli": "Meyve"
+      },
+      {
+        "date": "13 Kasım Perşembe",
+        "corba": "Brokoli Çorba",
+        "anayemek": "Kadınbudu Köfte + Püre",
+        "yan": "Su Böreği",
+        "tatli": "Karışık Komposto"
+      },
+      {
+        "date": "14 Kasım Cuma",
+        "corba": "Köylü Çorba",
+        "anayemek": "Taze Fasulye Yemeği",
+        "yan": "Kıymalı Kuskus Graten",
+        "tatli": "Şarlot"
+      }
+    ]
+  },
+  {
+    "week": "2. Hafta",
+    "days": [
+      {
+        "date": "17 Kasım Pazartesi",
+        "corba": "Tarhana Çorba",
+        "anayemek": "Hamburger Köfte",
+        "yan": "Patates Tava",
+        "tatli": "Gazoz"
+      },
+      {
+        "date": "18 Kasım Salı",
+        "corba": "Sebze Çorba",
+        "anayemek": "Etli Nohut",
+        "yan": "Pirinç Pilavı",
+        "tatli": "Mozaik Pasta"
+      },
+      {
+        "date": "19 Kasım Çarşamba",
+        "corba": "Kaşarlı Domates Çorba",
+        "anayemek": "Taze Baharatlı Tavuk Şiş",
+        "yan": "Şehriyeli Bulgur Pilavı",
+        "tatli": "Meyve"
+      },
+      {
+        "date": "20 Kasım Perşembe",
+        "corba": "Süzme Mercimek Çorba",
+        "anayemek": "Dana Ragout",
+        "yan": "Sebze Sote",
+        "tatli": "Meyve"
+      },
+      {
+        "date": "21 Kasım Cuma",
+        "corba": "Tandır Çorba",
+        "anayemek": "Etli Güveç",
+        "yan": "Pirinç Pilavı",
+        "tatli": "Tahinli Cevizli Balkabağı Tatlısı"
+      }
+    ]
+  }
+]

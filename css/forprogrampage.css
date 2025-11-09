@@ -1,0 +1,46 @@
+/* --- Program sayfasındaki Select2 dropdown için tema ayarı--- */
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+  background-color: var(--arka) !important;
+  border: 1px solid var(--ayrinti) !important;
+  color: var(--yazi) !important;
+  border-radius: 8px !important;
+  min-height: 38px;
+}
+
+.select2-container--default .select2-selection__rendered {
+  color: var(--yazi) !important;
+}
+
+.select2-container--default .select2-selection__placeholder {
+  color: var(--ayrinti) !important;
+}
+
+.select2-container--default .select2-selection__arrow b {
+  border-color: var(--yazi) transparent transparent transparent !important;
+}
+
+/* Dropdown area */
+.select2-container--default .select2-results > .select2-results__options {
+  background-color: var(--arka) !important;
+  color: var(--yazi) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: var(--sec) !important;
+  color: var(--arka) !important;
+}
+
+.select2-dropdown {
+  background-color: var(--arka) !important;
+  border: 1px solid var(--ayrinti) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+.select2-search__field {
+  background-color: var(--arka) !important;
+  color: var(--yazi) !important;
+  border: 1px solid var(--ayrinti) !important;
+  border-radius: 6px;
+}

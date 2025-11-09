@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--Osman Kuru-->
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="url" content="https://tobbetu.org"/>
+<meta name="description" content="tobbetu org homepage">
+<meta property="og:url" content="https://tobbetu.org"/>
+<meta property="og:site_name" content="TOBB ETU Portal"/>
+<meta name="url" content="https://cezeri.xyz">
+<script defer data-domain="cezeri.xyz" src="https://analyze.cezeri.tech/js/script.js"></script>
+<script defer data-domain="tobbetu.org" src="https://analyze.cezeri.tech/js/script.js"></script>
+<link id="favicon" href="/lighticon.png" rel="icon"/>
+<title>TOBB ETÜ Portal</title>
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ETÜ Portal">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="manifest" href="/manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('Service Worker active'))
+      .catch(err => console.error('SW error:', err));
+  }
+</script>
+<meta name="theme-color" content="#222">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+
+<body data-color="dark">
+<div class="notification-top-bar">
+<a class="kapatR" >&times;</a>
+<a class="kapatL" >&times;</a>
+<p><a href="https://play.google.com/store/apps/details?id=tobbetu.cezeri.portal">Yeni Android Mobil Uygulaması <small>Yükle</small></a></p>
+</div>
+<div class="container">
+
+<div class="info">
+<a id="themeSwitcher"><i class="fa fa-adjust"></i></a>
+<a href="/">Portal</a>
+<a href="https://cezeri.tech">Hakkımızda</a>
+<a class="b" href="https://www.linkedin.com/in/mtbbk/">Yapımcı: Barbaros Köş (MTBBK)</a>
+</div>
+
+<h1>TOBB ETÜ Portal</h1>
+
+<div class="widget-container">
+<div class="widget" id="meal-widget">
+<p class="loading">Yükleniyor...</p>
+</div>
+<div class="widget" id="ring-widget">
+<a href="/ringler"><p class="loading">Yükleniyor...</p></a>
+</div>
+</div>
+
+<div  id="cezeri" class="menu-container">
+<a class="menu-button" href="/duyurular"><i class="fa fa-bullhorn"></i> Duyurular</a>
+<a class="menu-button" href="/kopru"><i class="fa fa-link"></i> Köprü</a>
+<a class="menu-button" href="/akademik"><i class="fa fa-calendar"></i> Akademik Takvim</a>
+<a class="menu-button" href="/arsiv"><i class="fa fa-folder-open"></i> Ders Arşivi</a>
+<a class="menu-button" href="/menu"><i class="fa fa-spoon"></i> Yemek Menüsü</a>
+<a class="menu-button" href="/ringler"><i class="fa fa-bus"></i> Ring Saatleri</a>
+<a class="menu-button" href="/program"><i class="fa fa-book"></i> Program</a>
+<a class="menu-button" href="/sayac"><i class="fa fa-lock"></i> Geri Sayım</a>
+<a class="menu-button" href="https://play.google.com/store/apps/details?id=tobbetu.cezeri.portal"><i class="fa fa-mobile"></i> Mobil Uygulama</a>
+</div>
+
+<div class="widget" id="ring-widget" style="margin-top: 2rem;">
+<p><b>Görüş ve Önerileriniz İçin</b></p>
+<p><a href="mailto:barbaros@cezeri.tech">barbaros@cezeri.tech</a></p>
+<p><a href="tel:+905370101425">+90 (537) 010 14 25</a></p>
+<p><a href="mailto:mtbbk46@gmail.com">mtbbk46@gmail.com</a></p>
+</div>
+
+<h2>Sayfada Son Düzenleme: 09/11/2025</h2>
+
+<div class="line-2"></div>
+<footer>
+<p><a href="https://www.linkedin.com/company/tobb-etu-computer-science-community">TOBB ETÜ Bilgisayar Topluluğu</a></p>
+<p><a href="https://www.linkedin.com/company/cezeri-software">Cezeri Software © 2025</a></p>
+</footer>
+</div>
+
+<script type="text/javascript" src="/scripts/notification.js"></script>
+<script type="text/javascript" src="/scripts/getnextring.js"></script>
+<script type="text/javascript" src="/scripts/gettodaymenu.js"></script>
+<script type="text/javascript" src="/scripts/themeswitch.js"></script>
+<script type="text/javascript" src="/scripts/screensaver.js"></script>
+</body>
+</html>

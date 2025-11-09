@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Öğrenci Paneli</title>
+</head>
+<body>
+<h2>Öğrenci Kaydı</h2>
+<form id="registerForm">
+  <input type="email" name="email" placeholder="Öğrenci E-posta (@etu.edu.tr)" required><br>
+  <input type="text" name="number" placeholder="Öğrenci No" required><br>
+  <input type="text" name="name" placeholder="Ad Soyad" required><br>
+  <input type="text" name="username" placeholder="Kullanıcı Adı" required><br>
+  <button type="submit">Kayıt Ol</button>
+</form>
+
+<div id="verifyForm" style="display:none;">
+  <h3>Şifre Oluştur</h3>
+  <input type="password" id="password" placeholder="Yeni Şifre" required><br>
+  <button id="setPasswordBtn">Kaydı Tamamla</button>
+</div>
+
+<div id="students"></div>
+
+<script>
+const urlParams = new URLSearchParams(location.search);
+const verifyToken = urlParams.get("verify");
+
+if (verifyToken) {
+  document.getElementById("registerForm").style.display = "none";
+  document.getElementById("verifyForm").style.display = "block";
+
+  document.getElementById("setPasswordBtn").onclick = async () => {
+    const password = document.getElementById("password").value;
+    const res = await fetch("/api/students/set-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: verifyToken, password })
+    });
+    alert(await res.text());
+  };
+}
+
+document.getElementById("registerForm").onsubmit = async e => {
+  e.preventDefault();
+  const formData = Object.fromEntries(new FormData(e.target).entries());
+  const res = await fetch("/api/students/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+  });
+  alert(await res.text());
+};
+
+// Display all registered users
+fetch("/api/students/list")
+  .then(r => r.json())
+  .then(students => {
+    document.getElementById("students").innerHTML = `
+      <h3>Kayıtlı Öğrenciler</h3>
+      <ul>${students.map(s => `<li>${s.name} (${s.email})</li>`).join("")}</ul>
+    `;
+  });
+</script>
+</body>
+</html>

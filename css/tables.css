@@ -1,0 +1,46 @@
+
+  .table-wrapper {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+  }
+
+  .table-wrapper table {table-layout: auto;}
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+	table-layout: fixed;
+  }
+  th, td {
+    border: 1px solid var(--yazi);
+    padding: 8px 10px;
+    text-align: center;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	white-space: normal;
+  }
+  
+  .table-wrapper td:hover {
+    background: var(--sec);
+    cursor: pointer;
+  }
+  
+  th {
+    background: var(--tray);
+    color: var(--yazi);
+    font-weight: 600;
+  }
+    
+   #ring tr:nth-child(even) {
+	background: var(--tray);
+  }
+
+  caption {
+    caption-side: top;
+	text-align:left;
+	font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: .5rem;
+  }
