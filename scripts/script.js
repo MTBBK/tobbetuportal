@@ -1,5 +1,5 @@
 const DRIVE_FOLDER_ID = "15NME6J7DsDarn5DWpTA8OKhwMlUJPdYP";
-const API_KEY = "AIzaSyAtf6wQG_K3fsoc7lXn8BWYnsWn7lYe05o";
+const API_KEY = "/*your public api key*/";
 
 let cache = {};
 let pathStack = [];
