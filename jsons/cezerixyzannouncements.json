@@ -1,5 +1,25 @@
 [
   {
+    "title": "Gizli Özellik Açık Hâle Getirildi",
+    "date": "10 Kasım 2025",
+    "content": "Daha önce gizli bir özellik olarak yalnızca tuşunu bulanların kullanabildiği, gizli bir tuş ile açılan tema değiştirme özelliği bütün sayfalarda görünecek şekilde açık hâle getirildi. Ekranınızın sağ altında bulunan fırça tuşu ile temalar arası geçiş yapabilirsiniz. Hâlâ keşfedecek birçok gizli özellik var."
+  },  
+  {
+    "title": "Ders Listesi Sayfası Eklendi",
+    "date": "10 Kasım 2025",
+    "content": "Seçtiğiniz bölüme ait derslerin içeriğini görebileceğiniz ders listesi sayfası eklendi."
+  },
+  {
+    "title": "Köprü Sayfasına Bağlantı Ekleme",
+    "date": "09 Kasım 2025",
+    "content": "Köprü sayfasına \"Yeni Bağlantı Ekle\" tuşu eklendi. Bu sayede varsayılan yönlendirmelerin yanı sıra istediğiniz diğer internet sitelerine de hızlı köprü kurabileceksiniz."
+  },
+  {
+    "title": "Android Mobil Uygulaması Play Store'a Çıktı",
+    "date": "03 Kasım 2025",
+    "content": "Sayfayı bir defa açtığınız takdirde çevrim dışı olarak da çalışabilen Android uygulamasını Play Store'dan TOBB ETÜ Portal ismiyle edinebilirsiniz. <a href=\"https://play.google.com/store/apps/details?id=tobbetu.cezeri.portal\">https://play.google.com/store/apps/details?id=tobbetu.cezeri.portal</a>"
+  },
+  {
     "title": "Köprü Sayfası Eklendi",
     "date": "03 Kasım 2025",
     "content": "Yeni köprü sayfası ile TOBB ETÜ'nün bütün yan sayfalarına ve Piazza'ya hızlıca ulaşabileceksiniz. Biraz düşününce tobbetu.org'u daha fazla kullandırtmak için eklenmiş bir sayfaya benziyor ama neyse..."

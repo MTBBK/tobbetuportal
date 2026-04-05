@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const shirvanBtn = document.getElementById("shirvan-button");
   const ahmethocaBtn = document.getElementById("ahmethoca-button");
   const osmankuruBtn = document.getElementById("osmankuru-button");
+  const styleswitchBtn = document.getElementById("styleSwitcher");
+  const refreshBtn = document.getElementById("refreshButton");
+  const soundBtn = document.getElementById("soundButton");
+  const langSwitch = document.getElementById("langSwitcher");
   const shirvanContainer = document.getElementById("shirvan-container");
   const ahmethocaContainer = document.getElementById("ahmethoca-container");
   const osmankuruContainer = document.getElementById("osmankuru-container");
@@ -37,6 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
     shirvanBtn.style.display = "none";
 	ahmethocaBtn.style.display = "none";
     osmankuruBtn.style.display = "none";
+    styleswitchBtn.style.display = "none";
+    refreshBtn.style.display = "none";
+    soundBtn.style.display = "none";
+    langSwitch.style.display = "none";
     shirvanContainer.style.display = "block";
   });
   
@@ -44,6 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
     shirvanBtn.style.display = "none";
     ahmethocaBtn.style.display = "none";
     osmankuruBtn.style.display = "none";
+    styleswitchBtn.style.display = "none";
+    refreshBtn.style.display = "none";
+    soundBtn.style.display = "none";
+    langSwitch.style.display = "none";
     ahmethocaContainer.style.display = "block";
   });
   
@@ -51,6 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
     shirvanBtn.style.display = "none";
     ahmethocaBtn.style.display = "none";
     osmankuruBtn.style.display = "none";
+    styleswitchBtn.style.display = "none";
+    refreshBtn.style.display = "none";
+    soundBtn.style.display = "none";
+    langSwitch.style.display = "none";
     osmankuruContainer.style.display = "block";
   });
   
@@ -99,4 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
         sbubble.style.display = "none";
     }, 4000);
   });
+});
+
+document.getElementById('refreshButton').addEventListener('click', () => {
+  window.location.href = window.location.pathname + '?reload=' + new Date().getTime();
 });

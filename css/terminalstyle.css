@@ -1,0 +1,112 @@
+@import url("/css/style.css");
+
+/* ================================
+   TOBB ETÜ Portal — Terminal Theme
+   ================================ */
+
+:root {
+  --arka: #000000;
+  --menub: #001900;
+  --yazi: #00ff66;
+  --sec: #003300;
+  --ayrinti: #00cc44;
+  --tray: rgba(0, 255, 100, 0.25);
+}
+[data-color="dark"] {
+  --yazi: #00ff66;
+  --menub: #001900;
+}
+
+[data-color="light"] {
+  --yazi: #038a39;
+  --menub: #f0fff6;
+}
+
+[data-color="fancy"] {
+  --yazi: #038a39;
+  --menub: #e6f5d5;
+}
+
+/* general look */
+body {
+  background-color: var(--arka);
+  color: var(--yazi);
+  font-family: "Courier New", monospace;
+  text-shadow: 0 0 4px rgba(0, 255, 90, 0.8);
+}
+
+/* subtle scanlines effect */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: rgba(0, 10, 0, 0.7);
+  opacity: 0.2;
+}
+
+/* headings */
+h1, h2, h3 {
+  color: var(--yazi);
+  text-transform: uppercase;
+  text-shadow: 0 0 4px rgba(0, 255, 80, 0.8);
+}
+
+/* links */
+a {
+  color: #00ff88;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #00ffaa;
+}
+
+/* tables */
+table {
+  color: var(--yazi);
+}
+th, td {
+  border: 1px solid var(--ayrinti);
+  padding: 8px;
+}
+th {
+  background-color: #002200;
+}
+
+/* buttons */
+button, .menu-button {
+  background: var(--menub);
+  border: 1px solid var(--ayrinti);
+  color: var(--yazi);
+  font-family: "Courier New", monospace;
+  text-shadow: 0 0 3px rgba(0, 255, 80, 0.7);
+  transition: 0.2s;
+}
+button:hover, .menu-button:hover {
+  background: #003300;
+  box-shadow: 0 0 10px rgba(0, 255, 60, 0.6);
+}
+
+.cursor {
+  display: inline-block;
+  width: 4.5px;
+  height: 0.75em;
+  margin-left: 10px;
+  background-color: var(--yazi);
+  box-shadow: 0 0 5px var(--yazi);
+  animation: blinkCursor 1s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 50% { opacity: 1; }
+  50.1%, 100% { opacity: 0; }
+}
+
+/* footer */
+footer, header{
+  color: var(--ayrinti);
+  font-size: 0.9rem;
+  text-shadow: 0 0 2px rgba(0,255,100,0.5);
+}

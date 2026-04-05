@@ -9,41 +9,48 @@
 <meta property="og:site_name" content="TOBB ETU Announcements"/>
 <link id="favicon" href="/lighticon.png" rel="icon"/>
 <title>TOBB ETÜ Duyurular</title>
-<script defer data-domain="cezeri.xyz" src="https://analyze.cezeri.tech/js/script.js"></script>
-<script defer data-domain="tobbetu.org" src="https://analyze.cezeri.tech/js/script.js"></script>
+<script defer data-domain="tobbetu.org" src="https://analyze.cezeri.xyz/js/script.js"></script>
 <link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/style.css">
+<link id="themeStylesheet" rel="stylesheet" href="/css/style.css">
+<script src="/scripts/styleswitcher.js"></script>
 </head>
 <body data-color="dark">
+  <svg class="trail" viewBox="0 0 1 1">
+  <path d="" />
+  </svg>
 <div class="container">
+<header><p data-translate-key="warning">RESMİ SİTE DEĞİLDİR. TOBB ETÜ ile bağlantısı yoktur.</p></header>
 
 <div class="info">
 <a id="themeSwitcher"><i class="fa fa-adjust"></i></a>
-<a href="/">Portal</a>
-<a href="https://cezeri.tech">Hakkımızda</a>
-<a class="b" href="https://www.linkedin.com/in/mtbbk/">Yapımcı: Barbaros Köş (MTBBK)</a>
+<a href="/" data-translate-key="portal">Portal</a>
+<a href="https://cezeri.xyz" data-translate-key="about">Hakkımızda</a>
+<a class="b" href="https://www.linkedin.com/in/mtbbk/" data-translate-key="developer">Yapımcı: Barbaros Köş (MTBBK)</a>
 </div>
 
-<h1>TOBB ETÜ Duyurular</h1>
-
+<h1 data-translate-key="Tannouncements">TOBB ETÜ Duyurular<span class="cursor"></span></h1>
 <div id="posts" class="posts">
-  <p>Duyurular yükleniyor...</p>
+  <p data-translate-key="loading">Yükleniyor...</p>
 </div>
 
-<h2>Sayfada Son Düzenleme: 31/10/2025</h2>
+<h2 data-translate-key="lastchange">Sayfada Son Düzenleme: <zm>08/01/2026</zm></h2>
 
 <div class="line-2"></div>
 <footer>
-<p><a href="https://www.linkedin.com/company/tobb-etu-computer-science-community">TOBB ETÜ Bilgisayar Topluluğu</a></p>
-<p><a href="https://www.linkedin.com/company/cezeri-software">Cezeri Software © 2025</a></p>
+<p><a href="https://www.linkedin.com/company/cezeri-software">Cezeri Software © 2026</a></p>
 
 <div id="shirvan-container"><div id="shirvan"></div><div id="shirvan-bubble"></div></div>
 <div id="ahmethoca-container"><div id="ahmethoca"></div><div id="ahmethoca-bubble"></div></div>
 <div id="osmankuru-container"><div id="osmankuru"></div><div id="osmankuru-bubble"></div></div>
 
-<button id="shirvan-button" title="Ş">Ş</button>
-<button id="ahmethoca-button" title="A">A</button>
-<button id="osmankuru-button" title="O">O</button>
+<button id="refreshButton" title="Refresh"><i class="fa fa-repeat"></i></button>
+<button id="langSwitcher" title="Language"><i class="fa fa-globe"></i></button>
+<button id="soundButton" title="Sound"><i class="fa fa-music"></i></button>
+<button id="styleSwitcher" title="Style"><i class="fa fa-paint-brush"></i></button>
+<button id="shirvan-button" title="ShirvanHoca" data-translate-key="shirvan">Ş</button>
+<button id="ahmethoca-button" title="AhmetHoca">A</button>
+<button id="osmankuru-button" title="OsmanKuru">O</button>
+
 </footer>
 </div>
 
@@ -51,5 +58,9 @@
 <script type="text/javascript" src="/scripts/announche.js"></script>
 <script type="text/javascript" src="/scripts/screensaver.js"></script>
 <script type="text/javascript" src="/scripts/shirvan.js"></script>
+<script type="text/javascript" src="/scripts/styleswitcher.js"></script>
+<script type="text/javascript" src="/scripts/languageswitch.js"></script>
+<script type="text/javascript" src="/scripts/soundmanager.js"></script>
+<script type="text/javascript" src="/scripts/trail.js"></script>
 </body>
 </html>

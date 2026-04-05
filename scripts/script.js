@@ -1,5 +1,5 @@
 const DRIVE_FOLDER_ID = "15NME6J7DsDarn5DWpTA8OKhwMlUJPdYP";
-const API_KEY = "your_general_api_key";
+const API_KEY = "AIzaSyAtf6wQG_K3fsoc7lXn8BWYnsWn7lYe05o";
 
 let cache = {};
 let pathStack = [];
@@ -52,9 +52,15 @@ function updateBreadcrumbs() {
 
 async function buildTree(container, folderId) {
   const files = await listFiles(folderId);
-  for (const f of files) {
-    const li = document.createElement("li");
 
+  const visibleFiles = files.filter(
+    f =>
+      f.mimeType !== "application/vnd.google-apps.shortcut" &&
+      !f.name.startsWith(":")
+  );
+
+  for (const f of visibleFiles) {
+    const li = document.createElement("li");
     const row = document.createElement("div");
     row.classList.add("row");
 
@@ -64,7 +70,7 @@ async function buildTree(container, folderId) {
       const icon = document.createElement("i");
       icon.classList.add("fa", "fa-folder");
       icon.style.color = "var(--yazi)";
-	  
+
       const name = document.createElement("span");
       name.classList.add("folder-name");
       name.textContent = f.name;
@@ -82,7 +88,6 @@ async function buildTree(container, folderId) {
       row.appendChild(name);
       li.appendChild(row);
       li.appendChild(sub);
-
     } else {
       li.classList.add("file");
 

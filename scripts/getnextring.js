@@ -15,7 +15,7 @@
       return;
     }
     container.innerHTML = `
-      <a href="/ringler"><h2>Sonraki Ring</h2>
+      <a href="/ringler"><h2 data-translate-key="nextring">Sonraki Ring</h2>
       <p><b>${nextRing.time}</b></p>
       <p>${nextRing.from} → ${nextRing.to}</p></a>
     `;

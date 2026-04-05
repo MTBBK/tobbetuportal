@@ -9,7 +9,7 @@
       return;
     }
     container.innerHTML = `
-      <a href="/menu"><h2>Günün Menüsü</h2>
+      <a href="/menu"><h2 data-translate-key="dailymenu">Günün Menüsü</h2>
       <p>${meal.corba || ""}</p>
       <p>${meal.anayemek || ""}</p>
       <p>${meal.yan || ""}</p>
@@ -33,9 +33,19 @@
       const data = await res.json();
       localStorage.setItem(CACHE_KEY, JSON.stringify({ data, ts: Date.now() }));
 
-      const todayFormatted = formatTurkishDate(new Date());
-      const week = data.find(w => w.days.some(d => d.date === todayFormatted));
-      const day = week ? week.days.find(d => d.date === todayFormatted) : null;
+	const todayFormatted = formatTurkishDate(new Date());
+
+	// Find the day by normalizing spaces (collapsing multiple spaces into one)
+	let day = null;
+	for (const week of data) {
+	  day = week.days.find(d => {
+		// Normalize both strings before comparing
+		const jsonDate = d.date.replace(/\s+/g, ' ').trim();
+		const generatedDate = todayFormatted.replace(/\s+/g, ' ').trim();
+		return jsonDate === generatedDate;
+	  });
+	  if (day) break;
+	}
 
       render(day);
     } catch (e) {

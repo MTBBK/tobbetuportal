@@ -9,34 +9,37 @@
 <meta property="og:site_name" content="TOBB ETU Academic Calendar"/>
 <link id="favicon" href="/lighticon.png" rel="icon"/>
 <title>TOBB ETÜ Takvim</title>
-<script defer data-domain="cezeri.xyz" src="https://analyze.cezeri.tech/js/script.js"></script>
-<script defer data-domain="tobbetu.org" src="https://analyze.cezeri.tech/js/script.js"></script>
+<script defer data-domain="tobbetu.org" src="https://analyze.cezeri.xyz/js/script.js"></script>
 <link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/style.css">
+<link id="themeStylesheet" rel="stylesheet" href="/css/style.css">
+<script src="/scripts/styleswitcher.js"></script>
 </head>
 <body data-color="dark">
 <div class="container">
+<header><p data-translate-key="warning">RESMİ SİTE DEĞİLDİR. TOBB ETÜ ile bağlantısı yoktur.</p></header>
 
 <div class="info">
 <a id="themeSwitcher"><i class="fa fa-adjust"></i></a>
-<a href="/">Portal</a>
-<a href="https://cezeri.tech">Hakkımızda</a>
-<a class="b" href="https://www.linkedin.com/in/mtbbk/">Yapımcı: Barbaros Köş (MTBBK)</a>
+<a href="/" data-translate-key="portal">Portal</a>
+<a href="https://cezeri.xyz" data-translate-key="about">Hakkımızda</a>
+<a class="b" href="https://www.linkedin.com/in/mtbbk/" data-translate-key="developer">Yapımcı: Barbaros Köş (MTBBK)</a>
 </div>
 
-<h1>TOBB ETÜ Portal</h1>
+<h1 data-translate-key="Tportal">TOBB ETÜ Portal<span class="cursor"></span></h1>
 
 
-<h5>Sayfada Son Düzenleme: 01/11/2025</h5>
+<h5 data-translate-key="lastchange">Sayfada Son Düzenleme: <zm>01/11/2025</zm></h5>
 
 <div class="line-2"></div>
 <footer>
-<p><a href="https://www.linkedin.com/company/tobb-etu-computer-science-community">TOBB ETÜ Bilgisayar Topluluğu</a></p>
 <p><a href="https://www.linkedin.com/company/cezeri-software">Cezeri Software © 2025</a></p>
+<button id="styleSwitcher" class="noannounchpage" title="Style"><i class="fa fa-paint-brush"></i></button>
+<button id="langSwitcher" class="noannounchpage" title="Language"><i class="fa fa-globe"></i></button>
 </footer>
 </div>
 
-<script type="text/javascript" src="/scripts/academic.js"></script>
+<script type="text/javascript" src="/scripts/styleswitcher.js"></script>
+<script type="text/javascript" src="/scripts/languageswitch.js"></script>
 <script type="text/javascript" src="/scripts/themeswitch.js"></script>
 <script type="text/javascript" src="/scripts/screensaver.js"></script>
 </body>

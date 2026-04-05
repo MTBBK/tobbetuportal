@@ -55,57 +55,79 @@ function parseStartDate(text) {
     box.innerHTML = "<p>Veri alınamadı.</p>";
   }
 
-  function processCalendar(html) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-    const items = [...doc.querySelectorAll(".timeline__item")];
-    const finalItem = items.find(i => i.textContent.includes("Dönem sonu sınavları"));
-    if (!finalItem) {
-      box.innerHTML = "<p>Dönem sonu sınav tarihi bulunamadı.</p>";
+// ... (keep parseStartDate and other functions as they are)
+
+let countdownTimer; // Global variable to manage the timer
+
+function processCalendar(html) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+  const items = [...doc.querySelectorAll(".timeline__item")];
+  
+  const now = new Date();
+  
+  // FIX: Find the first exam period that is actually in the FUTURE
+  const futureExamItem = items.find(i => {
+    if (!i.textContent.includes("Dönem sonu sınavları")) return false;
+    const dateText = i.querySelector("h4")?.textContent || "";
+    const parsedDate = parseStartDate(dateText);
+    return parsedDate && parsedDate > now; // Only pick if date is after today
+  });
+
+  if (!futureExamItem) {
+    box.innerHTML = "<p>Gelecekteki bir sınav tarihi bulunamadı.</p>";
+    return;
+  }
+
+  const finalDate = parseStartDate(futureExamItem.querySelector("h4").textContent);
+  startCountdown(finalDate);
+}
+
+function startCountdown(targetDate) {
+  // Clear any existing timer to prevent multiple intervals running
+  if (countdownTimer) clearInterval(countdownTimer);
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    
+    if (diff <= 0) {
+      box.innerHTML = "<h2>Dönem Sonu Sınavları Başladı!</h2>";
+      clearInterval(countdownTimer);
       return;
     }
 
-    const dateText = finalItem.querySelector("h4")?.textContent || "";
-    const finalDate = parseStartDate(dateText);
-    if (!finalDate) {
-      box.innerHTML = "<p>Tarih çözümlenemedi.</p>";
-      return;
-    }
-
-    startCountdown(finalDate);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    
+    document.title = `${days} Gün kaldı`;
+    
+    box.innerHTML = `
+      <h2>Dönem Sonu Sınavlarına Kalan Süre</h2>
+      <div class="countdown-values">
+        <div><strong>${days}</strong><span>Gün</span></div>
+        <div><strong>${hours}</strong><span>Saat</span></div>
+        <div><strong>${minutes}</strong><span>Dakika</span></div>
+        <div><strong>${seconds}</strong><span>Saniye</span></div>
+      </div>
+      <p>Sınavlar ${targetDate.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })} tarihinde başlayacak.</p>
+    `;
   }
 
-  function startCountdown(targetDate) {
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
-      if (diff <= 0) {
-        box.innerHTML = "<h2>Dönem Sonu Sınavları Başladı!</h2>";
-        clearInterval(timer);
-        return;
-      }
+  updateCountdown();
+  countdownTimer = setInterval(updateCountdown, 1000);
+}
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      document.title = days + " Gün " + hours + " Saat kaldı.";
-      
-	  box.innerHTML = `
-        <h2>Dönem Sonu Sınavlarına Kalan Süre</h2>
-        <div class="countdown-values">
-          <div><strong>${days}</strong><span>Gün</span></div>
-          <div><strong>${hours}</strong><span>Saat</span></div>
-          <div><strong>${minutes}</strong><span>Dakika</span></div>
-          <div><strong>${seconds}</strong><span>Saniye</span></div>
-        </div>
-        <p>Sınavlar ${targetDate.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })} tarihinde başlayacak.</p>
-      `;
-    }
+// FIX: Improved Loading Logic
+function init() {
+  loadFromCache();    // Show cached data immediately if available
+  fetchCalendar();    // Then immediately fetch fresh data to update
+  setInterval(fetchCalendar, 1000 * 60 * 60); // Refresh every hour
+}
 
-    updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
-  }
+init();
 
   function loadFromCache() {
     const cache = localStorage.getItem(CACHE_KEY);
@@ -118,7 +140,4 @@ function parseStartDate(text) {
       fetchCalendar();
     }
   }
-
-  loadFromCache();
-  setTimeout(fetchCalendar, 1000 * 60 * 30); // refresh every 30 minutes
 })();
