@@ -3,39 +3,39 @@
     "week": "1. Hafta",
     "days": [
       {
-        "date": "30 Mart Pazartesi",
+        "date": "26 Ekim Pazartesi",
         "corba": "Yeşil Mercimek Çorba",
-        "anayemek": "Hamburger Köfte + Ketç.",
-        "yan": "Patates Tava",
-        "tatli": "Gazoz"
-      },
-      {
-        "date": "31 Mart Salı",
-        "corba": "Tandır Çorba",
-        "anayemek": "Etli Bezelye Yemeği",
-        "yan": "Pirinç Pilavı",
-        "tatli": "Kaymaklı Ekmek Kadayıfı"
-      },
-      {
-        "date": "1 Nisan Çarşamba",
-        "corba": "Közbiber Çorba",
-        "anayemek": "Tavuk Kanat",
-        "yan": "Bahçevan Soslu Makarna",
+        "anayemek": "Karamelize Soslu Zürcher Et",
+        "yan": "Baharatlı Patatesı",
         "tatli": "Meyve"
       },
       {
-        "date": "2 Nisan Perşembe",
-        "corba": "Mantar Çorba",
-        "anayemek": "Salçalı Biftek",
-        "yan": "Meyane Pilavı",
+        "date": "27 Ekim Salı",
+        "corba": "Yayla Çorba",
+        "anayemek": "Etli Bamya",
+        "yan": "Sebzeli Kaşarlı Kol Böreğiı",
+        "tatli": "Kazandibi"
+      },
+      {
+        "date": "28 Ekim Çarşamba",
+        "corba": "Resmi Tatil",
+        "anayemek": "Cafede Paris Soslu Antrikot",
+        "yan": "Parmesanlı Keşkek",
         "tatli": "Meyve"
       },
       {
-        "date": "3 Nisan Cuma",
-        "corba": "Süleymaniye Çorba",
-        "anayemek": "Kabak Oturtma",
-        "yan": "Peynirli Talaş Böreği",
-        "tatli": "Ekler"
+        "date": "29 Ekim Perşembe",
+        "corba": "Resmi Tatil",
+        "anayemek": "Kıymalı Kapuska",
+        "yan": "Su Böreği",
+        "tatli": "Kıbrıs Tatlısı"
+      },
+      {
+        "date": "30 Ekim Cuma",
+        "corba": "Ezogelin Çorba",
+        "anayemek": "Adana +Lavaş",
+        "yan": "Bulgur Pilavı",
+        "tatli": "Şalgam Suyu"
       }
     ]
   },
@@ -43,39 +43,39 @@
     "week": "2. Hafta",
     "days": [
       {
-        "date": "6 Nisan Pazartesi",
-        "corba": "Tarhana Çorba",
-        "anayemek": "Çoban Kavurma",
-        "yan": "Bulgur Pilavı",
-        "tatli": "Meyve"
+        "date": "2 Kasım Pazartesi",
+        "corba": "Domates Çorba",
+        "anayemek": "Hamburger Köfte+Ketç.",
+        "yan": "Patates Tava",
+        "tatli": "Gazoz"
       },
       {
-        "date": "7 Nisan Salı",
-        "corba": "Sebze Çorba",
-        "anayemek": "Etli Kuru Fasulye Yemeği",
+        "date": "3 Kasım Salı",
+        "corba": "Sebze Ezme Çorba",
+        "anayemek": "Etli Nohut",
         "yan": "Pirinç Pilavı",
-        "tatli": "Balkabaklı Crumble"
+        "tatli": "Profiterol"
       },
       {
-        "date": "8 Nisan Çarşamba",
-        "corba": "Ezogelin Çorba",
-        "anayemek": "Barbekü Soslu Tavuk",
-        "yan": "Elma Dilim Patates",
+        "date": "4 Kasım Çarşamba",
+        "corba": "Soğan Çorba",
+        "anayemek": "Uzak Doğu Usulü Tavuk",
+        "yan": "Basmati Pilav",
         "tatli": "Meyve"
       },
       {
-        "date": "9 Nisan Perşembe",
-        "corba": "Brokoli Çorba",
-        "anayemek": "Kadınbudu Köfte+Püre",
-        "yan": "Cevizli Erişte Pilavı",
-        "tatli": "Meyve"
+        "date": "5 Kasım Perşembe",
+        "corba": "Mercimek Çorba",
+        "anayemek": "Boşnak Mantı",
+        "yan": "İçli Köfte",
+        "tatli": "Taş Kadayıf"
       },
       {
-        "date": "10 Nisan Cuma",
-        "corba": "Toyga Çorba",
-        "anayemek": "Patlcan Musakka",
-        "yan": "Pirinç Pilavı",
-        "tatli": "Orman Meyveli Milföy Pasta"
+        "date": "6 Kasım Cuma",
+        "corba": "Şehriye Çorba",
+        "anayemek": "Terbiyeli Dana Haşlama",
+        "yan": "Domatesli Bulgur Pilavı",
+        "tatli": "Meyve"
       }
     ]
   }

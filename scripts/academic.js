@@ -3,29 +3,19 @@
   window.__TAKVIM_LOADED__ = true;
 
   const container = document.getElementById("timeline");
-  const targetUrl = "https://www.etu.edu.tr/tr/akademik-takvim";
-  const CACHE_KEY = "akademikTakvimCache_v2";
-
-  const proxies = [
-    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
-    `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(targetUrl)}`,
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`
-  ];
+  const CACHE_KEY = "akademikTakvimCache_v7";
+  const proxies = [`/apis/akademik-cache.html`];
 
   function parseAndRender(html) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
-
     container.innerHTML = "";
-    const headers = doc.querySelectorAll(".timeline__header");
-    let guzCount = 0;
+
+    const lisansTab = doc.querySelector(".tabs__content") || doc;
+    const headers = lisansTab.querySelectorAll(".timeline__header");
 
     for (let header of headers) {
       const title = (header.textContent || "").trim();
-      if (title === "Güz Dönemi") {
-        guzCount++;
-        if (guzCount > 1) break;
-      }
 
       const term = document.createElement("div");
       term.className = "term-header";
@@ -40,8 +30,14 @@
 
           const item = document.createElement("div");
           item.className = "item";
-          if (node.classList.contains("tatil_gunu")) item.classList.add("tatil");
-          if (node.classList.contains("onemli_gun")) item.classList.add("onemli");
+
+          if (desc.includes("(Tatil)") || desc.includes("(Yarım Gün)") || desc.includes("Bayramı")) {
+              item.classList.add("tatil");
+          }
+          else if ((!desc.toLowerCase().includes("sonrası başarı notlarının"))&&(desc.toLowerCase().includes("sonu sınavları") || desc.toLowerCase().includes("bütünleme"))) {
+              item.classList.add("onemli");
+          }
+
           item.innerHTML = `<span>${date}</span><strong>${desc}</strong>`;
           container.appendChild(item);
         }
@@ -49,7 +45,10 @@
       }
     }
 
-    setTimeout(() => showWeekCounter(doc), 300);
+    const existingCounter = container.querySelector(".week-counter");
+    if(existingCounter) existingCounter.remove();
+
+    showWeekCounter(lisansTab);
   }
 
   function parseDate(text) {
@@ -66,8 +65,9 @@
     return new Date(yil, ay, gun);
   }
 
-  function showWeekCounter(doc) {
-    const items = [...doc.querySelectorAll(".timeline__item")];
+  function showWeekCounter(lisansTab) {
+    const items = [...lisansTab.querySelectorAll(".timeline__item")];
+
     const startItem = items.find(i =>
       i.textContent.includes("Derslerin ve Ortak Eğitim Döneminin başlaması")
     );
@@ -118,6 +118,9 @@
       }
     }
     console.error("All proxies failed");
+    if(container.innerHTML === "" || container.innerHTML.includes("Yükleniyor")) {
+        container.innerHTML = "Takvim yüklenemedi.";
+    }
   }
 
   function loadFromCache() {
@@ -126,40 +129,13 @@
       const { html } = JSON.parse(cache);
       parseAndRender(html);
     } else {
-      container.textContent = "Yükleniyor...";
+      fetchAkademikTakvim();
     }
   }
 
-  function loadAkademikTakvim() {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadFromCache, { once: true });
+  } else {
     loadFromCache();
-    setTimeout(fetchAkademikTakvim, 500);
   }
-  
-  function academicCountdown(doc) {
-	  const items = [...doc.querySelectorAll(".timeline__item")];
-	  const startItem = items.find(i => i.textContent.includes("Derslerin ve Ortak Eğitim Döneminin başlaması"));
-	  const endItem = items.find(i => i.textContent.includes("Derslerin son günü"));
-
-	  if (!startItem || !endItem) return;
-
-	  const startText = startItem.querySelector("h4")?.textContent || "";
-	  const startDate = parseDate(startText);
-	  const today = new Date();
-
-	  const countdownBox = document.createElement("div");
-	  countdownBox.className = "countdown-box";
-
-	  const diffDays = Math.ceil((startDate - today) / (1000 * 60 * 60 * 24));
-	  if (diffDays > 0)
-		countdownBox.textContent = `Derslerin başlamasına ${diffDays} gün kaldı.`;
-	  else
-		countdownBox.textContent = "Ders dönemi başlamıştır.";
-
-	  document.getElementById("timeline").prepend(countdownBox);
-  }
-
-
-  if (document.readyState === "loading")
-    document.addEventListener("DOMContentLoaded", loadAkademikTakvim, { once: true });
-  else loadAkademikTakvim();
 })();

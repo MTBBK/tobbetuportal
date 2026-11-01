@@ -1,0 +1,24 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "tobbetu.cezeri.portal",
+      "sha256_cert_fingerprints": [
+        "78:DE:ED:3F:DD:36:D3:86:00:8B:6D:2B:30:6C:E9:43:7A:9A:CA:C7:62:E2:20:6B:55:52:87:A4:7B:6A:B4:53",
+        "41:5B:55:49:61:DC:3C:D9:2B:C0:F3:86:C2:0A:C7:12:B2:9B:0E:43:67:B0:07:5B:29:96:D7:CB:BD:1A:3F:6C"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "check_validation"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "tobbetu.cezeri.portal"
+    }
+  }
+]

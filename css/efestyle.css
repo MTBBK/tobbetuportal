@@ -1,0 +1,11 @@
+@import url("/css/style.css");
+
+@font-face {
+  font-family: 'Osman';
+  src: url('/fonts/mx437-ibm-vga-8x16_ufonts.woff') format('woff');
+}
+body {
+  font-family: 'Osman';
+}
+
+

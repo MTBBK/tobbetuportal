@@ -1,5 +1,5 @@
 const DRIVE_FOLDER_ID = "15NME6J7DsDarn5DWpTA8OKhwMlUJPdYP";
-const API_KEY = "/*your public api key*/";
+const OSMAN_KURU = "/*your public api key*/";
 
 let cache = {};
 let pathStack = [];
@@ -23,7 +23,7 @@ function formatDate(iso) {
 async function listFiles(folderId) {
   if (cache[folderId]) return cache[folderId];
   const url =
-    `https://www.googleapis.com/drive/v3/files?q='${folderId}' in parents and trashed=false&orderBy=folder,name&fields=files(id,name,mimeType,size,modifiedTime)&key=${API_KEY}`;
+    `https://www.googleapis.com/drive/v3/files?q='${folderId}' in parents and trashed=false&orderBy=folder,name&fields=files(id,name,mimeType,size,modifiedTime)&key=${OSMAN_KURU}`;
   const res = await fetch(url);
   const data = await res.json();
   cache[folderId] = data.files || [];

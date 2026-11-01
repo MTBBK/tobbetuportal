@@ -1,17 +1,15 @@
 (async function() {
   const container = document.getElementById("ring-widget");
   const targetUrl = "https://www.etu.edu.tr/tr/iletisim/ulasim";
-  const CACHE_KEY = "widgetRingCache";
+  const CACHE_KEY = "widgetRingCache_v2";
 
   const proxies = [
-    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
-    `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(targetUrl)}`,
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`
+    `/apis/ulasim-cache.html`
   ];
 
   function render(nextRing) {
     if (!nextRing) {
-      container.innerHTML = "<p>Bugün için ring bulunamadı.</p>";
+      container.innerHTML = "<p>Bugün için başka ring bulunamadı.</p>";
       return;
     }
     container.innerHTML = `
@@ -21,11 +19,12 @@
     `;
   }
 
-  function parseRings(html) {
+  // Updated to look for specific day headers (e.g., "RİNG" or "CUMARTESİ")
+  function parseRings(html, keyword) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
     const h3 = [...doc.querySelectorAll("h3")]
-      .find(h => (h.textContent || "").toUpperCase().includes("RİNG"));
+      .find(h => (h.textContent || "").toUpperCase().includes(keyword.toUpperCase()));
     if (!h3) return [];
 
     let table = h3.nextElementSibling;
@@ -44,14 +43,14 @@
     return rows.filter(r => r.time && r.from && r.to);
   }
 
-  async function fetchRings() {
+  async function fetchRings(keyword) {
     for (const proxy of proxies) {
       try {
         const res = await fetch(proxy, { cache: "no-store" });
         if (res.ok) {
           const html = await res.text();
           localStorage.setItem(CACHE_KEY, JSON.stringify({ html, ts: Date.now() }));
-          return parseRings(html);
+          return parseRings(html, keyword);
         }
       } catch {}
     }
@@ -62,25 +61,27 @@
     const now = new Date();
     const day = now.getDay(); // 0 = Sunday, 6 = Saturday
 
-    // Skip weekends
+    // Sunday skip remains the same
     if (day === 0) {
       container.innerHTML = "<p>Pazar günleri ring servisi bulunmamaktadır.</p>";
       return;
     }
-	else if(day === 6) {
-	  container.innerHTML = "<a href=\"https://www.etu.edu.tr/tr/iletisim/ulasim#:~:text=CUMARTES%C4%B0%20SERV%C4%B0SLER%C4%B0\"><p>Cumartesi ringleri sisteme henüz eklenmemiştir.</p></a>";
-	  return;
-	}
+
+    // Determine which table header to look for based on the day
+    const keyword = (day === 6) ? "CUMARTESİ" : "RİNG";
 
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
     let rings = null;
 
     const cache = localStorage.getItem(CACHE_KEY);
-    if (cache) rings = parseRings(JSON.parse(cache).html);
-    else rings = await fetchRings();
+    if (cache) {
+      rings = parseRings(JSON.parse(cache).html, keyword);
+    } else {
+      rings = await fetchRings(keyword);
+    }
 
-    if (!rings) {
-      container.innerHTML = "<p>Veri alınamadı.</p>";
+    if (!rings || rings.length === 0) {
+      container.innerHTML = "<p>Veri alınamadı veya ring bulunamadı.</p>";
       return;
     }
 
@@ -90,7 +91,7 @@
     });
 
     render(next);
-    if (!cache) await fetchRings(); // refresh if no cache
+    if (!cache) await fetchRings(keyword); // refresh if no cache
   }
 
   loadRings();

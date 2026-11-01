@@ -65,7 +65,7 @@ setInterval(() => {
   }
 }, AUTO_REFRESH_INTERVAL);
 
-  
+
   function createScreensaver() {
     screensaverEl = document.createElement("img");
     screensaverEl.src = "/fancyicon.png";
@@ -156,7 +156,8 @@ setInterval(() => {
   ["mousemove", "keydown", "mousedown", "touchstart"].forEach(evt =>
     document.addEventListener(evt, resetIdleTimer, { passive: true })
   );
-  
+
+
 /*
   var snowStorm = (function(window, document) {
 
@@ -226,7 +227,7 @@ setInterval(() => {
      * hat tip: paul irish
      * http://paulirish.com/2011/requestanimationframe-for-smart-animating/
      * https://gist.github.com/838785
-     
+
 
     function timeoutShim(callback) {
       window.setTimeout(callback, 1000/(storm.animationInterval || 20));
@@ -273,7 +274,7 @@ setInterval(() => {
     };
 
     localFeatures.transform.prop = (
-      localFeatures.transform.w3 || 
+      localFeatures.transform.w3 ||
       localFeatures.transform.moz ||
       localFeatures.transform.webkit ||
       localFeatures.transform.ie ||
@@ -808,15 +809,15 @@ setInterval(() => {
   }
 
   return this;
-
 }(window, document));
 
-  
-  
-  
+*/
+
+
+
 
   createScreensaver();
   resetIdleTimer();
 })();
 
-*/
+

@@ -3,12 +3,10 @@ async function loadRing() {
   container.innerHTML = '<p class="loading">Yükleniyor...</p>';
 
   const targetUrl = "https://www.etu.edu.tr/tr/iletisim/ulasim";
-  const CACHE_KEY = "ringServisleriCache_v3";
+  const CACHE_KEY = "ringServisleriCache_v4";
 
   const proxies = [
-    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
-    `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(targetUrl)}`,
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`
+    `/apis/ulasim-cache.html`
   ];
 
   function parseAndRender(html) {

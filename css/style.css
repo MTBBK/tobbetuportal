@@ -2,11 +2,11 @@
 	font-family: Cezeri;
 	src: url(/fonts/Omer-Sphere.woff);
   }
-  body { 
-	font-family: system-ui, sans-serif; 
-	margin: 2rem; 
-	background:var(--arka); 
-	color:var(--yazi); 
+  body {
+	font-family: system-ui, sans-serif;
+	margin: 2rem;
+	background:var(--arka);
+	color:var(--yazi);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -28,11 +28,11 @@
     flex-wrap: wrap;
     gap: 2px;
   }
-  
-  h1 { 
-  margin-bottom:0.5rem; 
+
+  h1 {
+  margin-bottom:0.5rem;
   }
-  
+
   h2 {
     display: block;
 	font-size: .83em;
@@ -42,8 +42,8 @@
 	margin-right: 0;
 	font-weight: bold;
   }
-  
-  .notification-top-bar {
+
+  .notification-top-bar, .party-top-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,11 +57,11 @@
   font-weight: light;
   font-size: 14px;
 }
-.notification-top-bar p {
+.notification-top-bar p, .party-top-bar p {
   padding: 0;
   margin: 0;
 }
-.notification-top-bar p small {
+.notification-top-bar p small, .party-top-bar p small {
   padding: 5px 10px;
   margin-left:4px;
   border-radius: 3px;
@@ -70,13 +70,13 @@
   font-weight: bold;
   text-decoration: none;
 }
-.kapatR {
+.kapatR, .kapatPartyR {
   position: fixed;
   right: 0;
   margin-right:1rem;
   cursor: pointer;
 }
-.kapatL {
+.kapatL, .kapatPartyL {
   position: fixed;
   left: 0;
   margin-left:1rem;
@@ -199,7 +199,7 @@
     min-height: 60vh;
     gap: 1.5rem;
   }
-  
+
   .menu-button {
     display: block;
     width: 80%;
@@ -256,10 +256,10 @@
   .folder-name, .file-name {
     flex-grow: 1;
   }
-  
+
   .details { color:var(--ayrinti); font-size:0.85em; margin-left:0.5em; }
   .hidden { display:none; }
-  
+
   .table-wrapper {
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
@@ -282,18 +282,18 @@
 	overflow-wrap: break-word;
 	white-space: normal;
   }
-  
+
   .table-wrapper td:hover {
     background: var(--sec);
     cursor: pointer;
   }
-  
+
   th {
     background: var(--tray);
     color: var(--yazi);
     font-weight: 600;
   }
-    
+
    #ring tr:nth-child(even) {
 	background: var(--tray);
   }
@@ -305,7 +305,7 @@
     font-weight: bold;
     margin-bottom: .5rem;
   }
-  
+
   .posts {
     display: flex;
     flex-direction: column;
@@ -344,8 +344,8 @@
     margin-top: 0.7rem;
     line-height: 1.6;
   }
-  
-  
+
+
   .lesson-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -386,7 +386,7 @@
     transition: 0.3s;
   }
   #searchBox:focus { box-shadow: 0 0 8px var(--yazi); }
-  
+
   #hafta {
   background: var(--tray);
   color: var(--yazi);
@@ -397,7 +397,7 @@
   margin-bottom: 1rem;
   border: 1px solid var(--yazi);
   }
-  
+
 .countdown-box {
   text-align: center;
   border-radius: 12px;
@@ -449,7 +449,7 @@
   .item.tatil { background: rgba(255, 100, 100, 0.15); border-color: #ff6666; }
   .item.onemli { background: rgba(255, 220, 100, 0.15); border-color: #ffcc33; }
   .loading { opacity: 0.8; font-style: italic; }
-   
+
   .edit-btn, .delete-btn {
     background: var(--arka);
     color: var(--yazi);
@@ -489,7 +489,7 @@
     color: var(--yazi);
     border-color: var(--yazi);
   }
-  
+
   a {margin-right:1rem;}
   a:link{text-decoration: none;color: var(--yazi);}
   a:visited{text-decoration: none;color: var(--yazi);}
@@ -517,8 +517,8 @@
   header p{
 	color: var(--ayrinti);
 	font-size: 1rem;
-  }  
-  
+  }
+
   footer {
 	font-family: 'Courier New', monospace;
 	text-align: center;
@@ -529,7 +529,7 @@
   footer p{
 	font-size: 1rem;
   }
-  
+
 footer #shirvan-container,
 footer #ahmethoca-container,
 footer #osmankuru-container {
@@ -589,6 +589,7 @@ footer #osmankuru-container {
 }
 
 #refreshButton.shifted { transform: translateX(-96px); }
+#refreshButton.original { transform: translateX(172px); }
 #soundButton.shifted { transform: translateX(-96px); }
 #langSwitcher.shifted { transform: translateX(-96px); }
 #soundButton.playing { animation: pulseGlow 1.5s ease-in-out infinite, growShrink 2s ease-in-out infinite; }
@@ -649,6 +650,7 @@ footer #osmankuru-container {
 #langSwitcher.noannounchpage:hover { transform: scale(1); }
 
 #refreshButton.shifted:hover { transform: translateX(-96px); }
+#refreshButton.original:hover { transform: translateX(172px); }
 #soundButton.shifted:hover { transform: translateX(-96px); }
 #langSwitcher.shifted:hover { transform: translateX(-96px); }
 
@@ -687,7 +689,7 @@ footer #osmankuru-container {
 #shirvan-bubble{
   right: 140px;
   bottom: 40px;
-}  
+}
 
 #ahmethoca-bubble{
   right: 160px;
@@ -697,7 +699,7 @@ footer #osmankuru-container {
 #osmankuru-bubble{
   right: 160px;
   bottom: 40px;
-} 
+}
 
 #shirvan-bubble::after,
 #ahmethoca-bubble::after,
